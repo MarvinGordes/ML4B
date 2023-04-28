@@ -3,21 +3,21 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Laden Sie Ihre CSV-Dateien hier
-data_file_1 = pd.read_csv("Mikrowelle.csv")
+data_file_4 = pd.read_csv("Akkordeon.csv")
 data_file_2 = pd.read_csv("Katze.csv")
 data_file_3 = pd.read_csv("Mixer.csv")
-data_file_4 = pd.read_csv("Mikrowelle.csv")
+data_file_1 = pd.read_csv("Mikrowelle.csv")
 data_file_1 = data_file_1.drop('time', axis=1)
 data_file_2 = data_file_2.drop('time', axis=1)
 data_file_3 = data_file_3.drop('time', axis=1)
 data_file_4 = data_file_4.drop('time', axis=1)
 
 # Definieren Sie die Beschriftungen
-label_options = ["Mixer", "Katze", "Gitarre", "Mikrowelle"]
+label_options = ["Mixer", "Katze", "Akkordeon", "Mikrowelle"]
 
 # Erstellen Sie die Streamlit-App
 st.title("Kannst du Katzen von Küchengeräten unterscheiden?")
-st.write("Jeder Graph zeigt die Audiospur von entweder einer Katze, einem Mixer, einer Mikrowelle oder einer Gitarre an. Weise jedem Graphen den Ursprung des Geräuschs zu und klicke unten auf den Button, um zu sehen, ob du alles richtig eingeordnet hast!")
+st.write("Jeder Graph zeigt die Audiospur von entweder einer Katze, einem Mixer, einer Mikrowelle oder einem Akkordeon an. Weise jedem Graphen den Ursprung des Geräuschs zu und klicke unten auf den Button, um zu sehen, ob du alles richtig eingeordnet hast!")
 
 # Konvertieren Sie die Daten in Graphen und zeigen Sie sie an
 fig_1, ax_1 = plt.subplots()
@@ -52,7 +52,7 @@ st.markdown("---")
 audio_file_1 = open("Mix.mp3", "rb").read()
 audio_file_2 = open("Cat.mp3", "rb").read()
 audio_file_3 = open("Microwave.mp3", "rb").read()
-audio_file_4 = open("Microwave.mp3", "rb").read()
+audio_file_4 = open("Accord.mp3", "rb").read()
 
 st.audio(audio_file_1, format='audio/mp3', start_time=0)
 st.button("Mixer")
@@ -64,14 +64,14 @@ st.audio(audio_file_3, format='audio/mp3', start_time=0)
 st.button("Mikrowelle")
 
 st.audio(audio_file_4, format='audio/mp3', start_time=0)
-st.button("Gitarre")
+st.button("Akkordeon")
 
 st.markdown("---")
 
 # Erstellen Sie einen Button zum Auswerten der Beschriftungen
 if st.button("Auswerten"):
     # Definieren Sie die korrekten Antworten
-    correct_labels = ["Mikrowelle", "Katze", "Mixer", "Gitarre"]
+    correct_labels = ["Mikrowelle", "Katze", "Mixer", "Akkordeon"]
     
     # Überprüfen Sie die Antworten des Benutzers
     user_labels = [label_1, label_2, label_3, label_4]
