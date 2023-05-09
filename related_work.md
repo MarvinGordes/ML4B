@@ -4,5 +4,5 @@ https://ieeexplore.ieee.org/document/9616775
 D. Moreira, A. P. Furtado and S. Nogueira, "Testing acoustic scene classifiers using Metamorphic Relations," 2020 IEEE International Conference On Artificial Intelligence Testing (AITest), Oxford, UK, 2020, pp. 47-54, doi: 10.1109/AITEST49225.2020.00014.
 https://ieeexplore.ieee.org/document/9176773
 
-Wang, Y., Wei-Kocsis, J., Springer, J.A., Matson, E.T. (2022). Deep Learning in Audio Classification. In: Lopata, A., Gudonienė, D., Butkienė, R. (eds) Information and Software Technologies. ICIST 2022. Communications in Computer and Information Science, vol 1665. Springer, Cham. https://doi.org/10.1007/978-3-031-16302-9_5 Titel anhand dieser DOI in Citavi-Projekt übernehmen
+Wang, Y., Wei-Kocsis, J., Springer, J.A., Matson, E.T. (2022). Deep Learning in Audio Classification. In: Lopata, A., Gudonienė, D., Butkienė, R. (eds) Information and Software Technologies. ICIST 2022. Communications in Computer and Information Science, vol 1665. Springer, Cham.
 https://link.springer.com/chapter/10.1007/978-3-031-16302-9_5
