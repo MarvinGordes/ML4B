@@ -1,0 +1,78 @@
+import glob
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+import csv
+import random
+import streamlit as st
+import matplotlib.pyplot as plt
+import numpy as np
+
+def process_csv_file(csv_file, sample_size, num_samples):
+    samples = []
+    used_samples = set()
+
+    with open(csv_file, 'r') as file:
+        reader = csv.reader(file)
+        next(reader)  # Überspringe die Header-Zeile
+
+        lines = list(reader)
+        lines_without_first_column = [line[1:] for line in lines]
+
+        total_lines = len(lines_without_first_column)
+        max_start_index = total_lines - sample_size
+
+        if max_start_index <= 0:
+            print("Nicht genügend Zeilen in der CSV-Datei.")
+            return
+
+        while len(samples) < num_samples:
+            start_index = random.randint(0, max_start_index)
+            sample = lines_without_first_column[start_index: start_index + sample_size]
+            sample_str = str(sample)
+
+            if sample_str not in used_samples:
+                label = None
+                if 'Knocking' in csv_file:
+                    label = 'Knock'
+                elif 'Water' in csv_file:
+                    label = 'Water'
+                samples.append((sample, label))
+                used_samples.add(sample_str)
+
+    print(f"Anzahl der einzigartigen Samples: {len(samples)}")
+    return samples
+
+
+# Beispielaufruf der Funktion
+sample_size = 50
+num_samples = 300
+
+knock_data = process_csv_file('Knocking.csv', sample_size, num_samples)
+water_data = process_csv_file('Water.csv', sample_size, num_samples)
+
+# Mische die Daten in einer zufälligen Reihenfolge
+dataset = knock_data + water_data
+random.shuffle(dataset)
+
+# Konvertiere die Features in numerische Werte und richte die Dimensionen richtig aus
+features = np.array([sample[0] for sample in dataset], dtype=float)
+features = features.reshape(features.shape[0], -1)  # Hier wird die Dimension auf 2 angepasst
+labels = np.array([sample[1] for sample in dataset])
+
+# Aufteilen der Daten in Trainings- und Testdaten
+X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42)
+
+# Erstelle den KNN-Klassifikator
+knn = KNeighborsClassifier(n_neighbors=3)
+
+# Trainiere den Klassifikator
+knn.fit(X_train, y_train)
+
+# Vorhersagen für die Testdaten machen
+y_pred = knn.predict(X_test)
+
+# Bewertung der Genauigkeit des Klassifikators
+accuracy = accuracy_score(y_test, y_pred)
+print('Genauigkeit:', accuracy)
