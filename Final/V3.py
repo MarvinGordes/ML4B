@@ -20,10 +20,12 @@ import pickle
 import streamlit as st
 from PIL import Image
 
-liveSamples = []
+
 
 st.title("Audio-Classification")
 
+pickle_in = open('knnclassifier3inputs.pkl', 'rb')
+classifier = pickle.load(pickle_in)
 
 
 uploaded_file = st.file_uploader("Choose a file")
@@ -35,10 +37,6 @@ if uploaded_file is not None:
     file.drop(['time'], axis=1, inplace=True) 
     file['dBFS'] = file['dBFS'].round(decimals = 0)
     file['Label'] = 'Knocking'
-    
-    liveSamples.append(file)  
-    
-    
      
     st.write("Dein Sample: ")
 
@@ -52,22 +50,20 @@ if uploaded_file is not None:
 
 
 
-pickle_in = open('classifier.pkl', 'rb')
-classifier = pickle.load(pickle_in)
 
 
 
-input = []
-
-
-def prediction(input):  
-    for i in liveSamples:
-        input.append(pd.DataFrame({"dBFS_Varianz": i["dBFS"].var(),"dBFS_STD" : i["dBFS"].std(), "dBFS_mean" : i["dBFS"].mean(),
-        "dBFS_min" : i["dBFS"].min(), "dBFS_max" : i["dBFS"].max(), "dBFS_absMax" : i["dBFS"].abs().max(), "dBFS_sum" : i["dBFS"].sum(), "dBFS_median" : i["dBFS"].median(), "Label" : i["Label"]}))
-    input[0] = input[0].drop('Label', axis=1)
-    prediction = classifier.predict(input)
-    print(prediction)
+def prediction(input):
+    data = []  
+    data.append(pd.DataFrame({"dBFS_Varianz": input["dBFS"].var(),"dBFS_STD" : input["dBFS"].std(), "dBFS_mean" : input["dBFS"].mean(),
+        "dBFS_min" : input["dBFS"].min(), "dBFS_max" : input["dBFS"].max(), "dBFS_absMax" : input["dBFS"].abs().max(), "dBFS_sum" : input["dBFS"].sum(), "dBFS_median" : input["dBFS"].median(), "Label" : input["Label"]}))
+    
+    
+    data[0] = data[0].drop('Label', axis=1)
+    prediction = classifier.predict(data[0])
+    prediction = prediction[0]
+    st.write(data[0].head(1))  
     return prediction
 
 if st.button("Predict"):
-    prediction(input)
+    st.write(prediction(file))
