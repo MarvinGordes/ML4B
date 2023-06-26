@@ -7,7 +7,7 @@ import streamlit as st
 import requests
 
 
-url = 'https://github.com/MarvinGordes/ML4B/blob/main/Final/forest10-10000.pkl'
+url = 'https://github.com/MarvinGordes/ML4B/blob/f854313438fc82b3cfa7b704b987c6d4fe645b61/Final/forest10-10000.pkl'
 response = requests.get(url)
 
 if response.status_code == 200:
