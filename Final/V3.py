@@ -4,13 +4,23 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import pickle
 import streamlit as st
+import requests
 
+
+url = 'https://github.com/MarvinGordes/ML4B/blob/main/Final/forest10-10000.pkl'
+response = requests.get(url)
+
+if response.status_code == 200:
+    # Bytes des Dateiinhalts erhalten
+    file_content = response.content
+
+    # Bytes in ein Python-Objekt laden
+    model = pickle.loads(file_content)
 
 
 st.title("Audio-Classification")
 
-pickle_in = open('forest10-10000.pkl', 'rb')
-classifier = pickle.load(pickle_in)
+classifier = model
 
 
 uploaded_file = st.file_uploader("Choose a file")
