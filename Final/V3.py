@@ -1,30 +1,15 @@
 # Notwendige Bibliotheken importieren
-import glob
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import precision_score
-from sklearn.metrics import recall_score
-from sklearn.metrics import classification_report
-from sklearn.ensemble import RandomForestClassifier
-import csv
-import random
 import streamlit as st
 import matplotlib.pyplot as plt
-import numpy as np
-import tsfresh
-from io import StringIO
 import pickle
 import streamlit as st
-from PIL import Image
 
 
 
 st.title("Audio-Classification")
 
-pickle_in = open('knnclassifier3inputs.pkl', 'rb')
+pickle_in = open('forest10-10000.pkl', 'rb')
 classifier = pickle.load(pickle_in)
 
 
@@ -47,11 +32,6 @@ if uploaded_file is not None:
     ax.set_ylabel('Y')
     ax.set_title('Liniengraph')
     st.pyplot(fig)
-
-
-
-
-
 
 def prediction(input):
     data = []  
