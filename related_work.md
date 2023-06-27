@@ -1,3 +1,7 @@
+https://www.netzwelt.de/anleitung/188298-android-so-erkennt-handy-geraeusche-alarmiert-euch.html
+
+https://www.giga.de/tipp/geraeuscherkennung-am-iphone-so-gehts/
+
 N. K, S. K. S and V. S, "Ensemble and Multi Model approach to Environmental Sound Classification," 2021 Fourth International Conference on Electrical, Computer and Communication Technologies (ICECCT), Erode, India, 2021, pp. 1-5, doi: 10.1109/ICECCT52121.2021.9616775 Titel anhand dieser DOI in Citavi-Projekt übernehmen.
 https://ieeexplore.ieee.org/document/9616775
 
