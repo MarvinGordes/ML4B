@@ -148,5 +148,3 @@ def main():
     page = pages[selection]
     page()
 
-if __name__ == "__main__":
-    main()
