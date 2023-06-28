@@ -53,7 +53,7 @@ def page3():
     
     # Modell laden
 
-    model = open('forest10-12000.pkl', 'rb')
+    model = open('Final/forest10-12000.pkl', 'rb')
     classifier = pickle.load(model)
 
     # Upload-Funktion 
