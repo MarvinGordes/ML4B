@@ -6,8 +6,7 @@ from sklearn.metrics import classification_report
 import numpy as np
 
 
-placeholder = "duck-dance.mp4"
-image1 = "duck.jpeg"
+
 
 
 def home():
@@ -20,9 +19,9 @@ def page1():
     with st.expander("Die Entwickler"):
         col1,col2 = st.columns(2)
         with col1:
-            st.image(image1)
+            st.write("bild1")
         with col2:
-            st.image(image1)
+            st.write("bild1")
         st.write("Lorem Ipsum")
     with st.expander("Unsere Idee"):
         st.markdown("Unser Ziel ist es, gehörlosen Menschen mit unserer Lösung eine kostengünstige und flexible Möglichkeit zu bieten, auf relevante Geräusche aufmerksam gemacht zu werden.  Es existieren bestehende Lösungen auf den verbreiteten Smartphone-Betriebssystemen (vgl. https://www.netzwelt.de/anleitung/188298-android-so-erkennt-handy-geraeusche-alarmiert-euch.html und https://www.giga.de/tipp/geraeuscherkennung-am-iphone-so-gehts/). Wenn das Handy aber in der Hosentasche oder im Rucksack ist, lässt sich damit die Wohnung nicht zuverlässig abdecken. Außerdem sind die erkennbaren Geräusche limitiert.  Die jetzige Version zeigt, dass es mit vergleichsweise wenigen selbst aufgenommenen Trainingsdaten möglich ist, ein gut funktionierendes Machine Learning Modell zu trainieren. Zukünftig sollen neben laufendem Wasser, Klopfen und Mikrowellen weitere Geräusche in die Liste der erkennbaren Geräusche mit aufgenommen werden.  Zudem soll die Anwendung live laufen können und kostengünstige, dauerhaft installierbarre Hardware wie den Raspberry Pi unterstützen. Darüberhinaus soll eine Anleitung erstellt werden, wie auch Menschen ohne Programmiererfahrung das Modell für ihre konkreten Geräusche (z.B. ihre Türklingel) anpassen können. ")
@@ -39,7 +38,7 @@ def page2():
     st.markdown("Dann können Sie eine Tonaufnahme von Türklopfen, laufendem Wasser oder einer Mikrowelle aufnehmen. Exportieren Sie die Daten als CSV und laden Sie die Datei hier hoch:")
     
     st.subheader("2. Laden Sie ihr Sample auf der nächsten Seite hoch:")
-    st.video(placeholder)
+  
     
     st.subheader("3. Visualisieren Sie ihr Sample")
     st.markdown("Über die nächsten zwei Buttons können Sie ihr Sample als Rohdaten oder Graph ausgeben lassen.")
