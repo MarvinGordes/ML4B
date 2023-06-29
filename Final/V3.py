@@ -82,6 +82,7 @@ def page3():
 
     if userSample is not None:
         file = pd.read_csv(userSample)
+        file.drop(['time'], axis=1, inplace=True) 
         
         with st.expander("Rohdaten anzeigen"):
             st.write(file)
@@ -96,7 +97,7 @@ def page3():
             st.pyplot(fig)
         # Vorbereiten der hochgeladenen Daten
         
-        file.drop(['time'], axis=1, inplace=True) 
+        
         file['dBFS'] = file['dBFS'].round(decimals = 0)
         file['Label'] = 'Blank'
         
