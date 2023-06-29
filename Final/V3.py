@@ -5,25 +5,25 @@ import pickle
 from sklearn.metrics import classification_report
 import numpy as np
 
-"""
-Kurzer Rundown der wichtigsten Methoden falls du hier etwas ausarbeiten willst:
 
-Größere Schriftzüge: st.title("Lorem Ipsum"), st.header("Lorem Ipsum"), st.subheader("Lorem Ipsum")
+# Kurzer Rundown der wichtigsten Methoden falls du hier etwas ausarbeiten willst:
+#
+# Größere Schriftzüge: st.title("Lorem Ipsum"), st.header("Lorem Ipsum"), st.subheader("Lorem Ipsum")
+#
+# Text: st.write("Für Einzeiler"), st.markdown("Für alles mit Zeilenumbruch")  -> Absätze hab ich bisher einfach mit mehreren markdowns gemacht, evtl gehts auch hübscher, kA
+#
+# Ausklappbare Textfelder: with st.expander("Titel"):
+#                            st.write("Einrücken nicht vergessen")
+#                            
+# Medien: image1 = "beispiel.png"  -> st.image(image1), video1 = "beispiel.mp4" -> st.video(video1) 
+#        Falls es hier Probleme gibt, liegts wahrscheinlich am Dateipfad, aber da du das sowieso auf dem LocalHost laufen lassen wirst, ist das nicht besonders kompliziert
+#
+# Wenn du Sachen nebeneinander packen willst:  col1,col2 = st.columns(2)
+#                                            with col1:
+#                                                st.write("Wieder mit Einrücken, für col2 dasselbe")
+#
+# Wenn du noch schauen willst, was es sonst so gibt: https://docs.streamlit.io/library/cheatsheet
 
-Text: st.write("Für Einzeiler"), st.markdown("Für alles mit Zeilenumbruch")  -> Absätze hab ich bisher einfach mit mehreren markdowns gemacht, evtl gehts auch hübscher, kA
-
-Ausklappbare Textfelder: with st.expander("Titel"):
-                            st.write("Einrücken nicht vergessen")
-                            
-Medien: image1 = "beispiel.png"  -> st.image(image1), video1 = "beispiel.mp4" -> st.video(video1) 
-        Falls es hier Probleme gibt, liegts wahrscheinlich am Dateipfad, aber da du das sowieso auf dem LocalHost laufen lassen wirst, ist das nicht besonders kompliziert
-
-Wenn du Sachen nebeneinander packen willst:  col1,col2 = st.columns(2)
-                                            with col1:
-                                                st.write("Wieder mit Einrücken, für col2 dasselbe")
-
-Wenn du noch schauen willst, was es sonst so gibt: https://docs.streamlit.io/library/cheatsheet
-"""
 
 def home():
     st.header("Willkommen auf unserem Audio-Erkennungs-Tool!")
