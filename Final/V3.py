@@ -5,9 +5,25 @@ import pickle
 from sklearn.metrics import classification_report
 import numpy as np
 
+"""
+Kurzer Rundown der wichtigsten Methoden falls du hier etwas ausarbeiten willst:
 
+Größere Schriftzüge: st.title("Lorem Ipsum"), st.header("Lorem Ipsum"), st.subheader("Lorem Ipsum")
 
+Text: st.write("Für Einzeiler"), st.markdown("Für alles mit Zeilenumbruch")  -> Absätze hab ich bisher einfach mit mehreren markdowns gemacht, evtl gehts auch hübscher, kA
 
+Ausklappbare Textfelder: with st.expander("Titel"):
+                            st.write("Einrücken nicht vergessen")
+                            
+Medien: image1 = "beispiel.png"  -> st.image(image1), video1 = "beispiel.mp4" -> st.video(video1) 
+        Falls es hier Probleme gibt, liegts wahrscheinlich am Dateipfad, aber da du das sowieso auf dem LocalHost laufen lassen wirst, ist das nicht besonders kompliziert
+
+Wenn du Sachen nebeneinander packen willst:  col1,col2 = st.columns(2)
+                                            with col1:
+                                                st.write("Wieder mit Einrücken, für col2 dasselbe")
+
+Wenn du noch schauen willst, was es sonst so gibt: https://docs.streamlit.io/library/cheatsheet
+"""
 
 def home():
     st.header("Willkommen auf unserem Audio-Erkennungs-Tool!")
@@ -19,9 +35,11 @@ def page1():
     with st.expander("Die Entwickler"):
         col1,col2 = st.columns(2)
         with col1:
-            st.write("bild1")
+            #st.image(image1)
+            st.write("bild 1")
         with col2:
-            st.write("bild1")
+           # st.image(image1)
+           st.write("bild 2")
         st.write("Lorem Ipsum")
     with st.expander("Unsere Idee"):
         st.markdown("Unser Ziel ist es, gehörlosen Menschen mit unserer Lösung eine kostengünstige und flexible Möglichkeit zu bieten, auf relevante Geräusche aufmerksam gemacht zu werden.  Es existieren bestehende Lösungen auf den verbreiteten Smartphone-Betriebssystemen (vgl. https://www.netzwelt.de/anleitung/188298-android-so-erkennt-handy-geraeusche-alarmiert-euch.html und https://www.giga.de/tipp/geraeuscherkennung-am-iphone-so-gehts/). Wenn das Handy aber in der Hosentasche oder im Rucksack ist, lässt sich damit die Wohnung nicht zuverlässig abdecken. Außerdem sind die erkennbaren Geräusche limitiert.  Die jetzige Version zeigt, dass es mit vergleichsweise wenigen selbst aufgenommenen Trainingsdaten möglich ist, ein gut funktionierendes Machine Learning Modell zu trainieren. Zukünftig sollen neben laufendem Wasser, Klopfen und Mikrowellen weitere Geräusche in die Liste der erkennbaren Geräusche mit aufgenommen werden.  Zudem soll die Anwendung live laufen können und kostengünstige, dauerhaft installierbarre Hardware wie den Raspberry Pi unterstützen. Darüberhinaus soll eine Anleitung erstellt werden, wie auch Menschen ohne Programmiererfahrung das Modell für ihre konkreten Geräusche (z.B. ihre Türklingel) anpassen können. ")
@@ -35,10 +53,11 @@ def page2():
     st.markdown("Laden Sie sich die Sensor-Logger App für Ihr Smartphone herunter: ")
     st.markdown("iOS: https://apps.apple.com/us/app/sensor-logger/id1531582925")
     st.markdown("Android: https://play.google.com/store/apps/details?id=com.kelvin.sensorapp&pli=1")          
-    st.markdown("Dann können Sie eine Tonaufnahme von Türklopfen, laufendem Wasser oder einer Mikrowelle aufnehmen. Exportieren Sie die Daten als CSV und laden Sie die Datei hier hoch:")
+    st.markdown("Dann können Sie eine Tonaufnahme von Türklopfen, laufendem Wasser oder einer Mikrowelle aufnehmen.")
     
     st.subheader("2. Laden Sie ihr Sample auf der nächsten Seite hoch:")
-  
+    #st.video(placeholder)
+    st.write("Hier Video als Demonstration? Also Bildschirmaufnahme mit extrahieren, raussuchen der .csv und hochladen auf unserer App")
     
     st.subheader("3. Visualisieren Sie ihr Sample")
     st.markdown("Über die nächsten zwei Buttons können Sie ihr Sample als Rohdaten oder Graph ausgeben lassen.")
@@ -53,24 +72,21 @@ def page3():
     
     # Modell laden
 
-    model = open('Final/forest10-12000.pkl', 'rb')
+    model = open('forest10-12000.pkl', 'rb')
     classifier = pickle.load(model)
 
     # Upload-Funktion 
 
     userSample = st.file_uploader("Lade deine .csv Datei hoch!")
-    show_data = False
+   
 
     if userSample is not None:
         file = pd.read_csv(userSample)
         
-        if st.button("Rohdaten anzeigen"):
-            show_data = not show_data
-             
-        if show_data:
+        with st.expander("Rohdaten anzeigen"):
             st.write(file)
-         
-        if st.button("Graph anzeigen"):
+             
+        with st.expander("Graph anzeigen"):
             df= file
             fig, ax = plt.subplots()
             ax.plot(df['seconds_elapsed'], df['dBFS'])
@@ -109,7 +125,7 @@ def page4():
         st.write("Lorem Ipsum")
     with st.expander("Testdaten"):
         st.write("Lorem Ipsum")
-    with st.expander("Ist es überhaupt Teil der Aufgabenstellung, dass wir so tun als würden wir den Kram hier nicht direkt droppen sobald unsere Präsentation fertig ist?"):
+    with st.expander("App"):
         st.write("Lorem Ipsum")
     # Füge hier den Inhalt für die Seite 4 hinzu
     
@@ -146,6 +162,6 @@ def main():
     selection = st.sidebar.radio("Gehe zu", list(pages.keys()))
     page = pages[selection]
     page()
-    
+
 if __name__ == "__main__":
     main()
