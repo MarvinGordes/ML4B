@@ -26,9 +26,11 @@ import numpy as np
 
 
 def home():
+    img1 = open("Final/Assets/image1.jpg")
     st.header("Willkommen auf unserem Audio-Klassifizierungs-Tool!")
     st.markdown("Wir verwenden ein Machine-Learning-Modell, um verschiedene Arte von Geräuschen voneinander unterscheiden zu können. Unser Ziel ist es, das Machine-Learning-Modell und diese Anwendung so weiterzuentwickeln, dass sie gehörlosen Menschen dabei helfen kann, auf relevante Geräusche aufmerksam zu werden. ")
-    # Füge hier den Inhalt für die Home-Seite hinzu
+    st.image(img1)
+
 
 
 def page1():
