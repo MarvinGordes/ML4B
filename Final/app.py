@@ -27,7 +27,7 @@ from PIL import Image
 
 
 def home():
-    img1 = open('Final/Assets/image1.jpg')
+    img1 = Image.open('Final/Assets/image1.jpg')
     st.header("Willkommen auf unserem Audio-Klassifizierungs-Tool!")
     st.markdown("Wir verwenden ein Machine-Learning-Modell, um verschiedene Arte von Geräuschen voneinander unterscheiden zu können. Unser Ziel ist es, das Machine-Learning-Modell und diese Anwendung so weiterzuentwickeln, dass sie gehörlosen Menschen dabei helfen kann, auf relevante Geräusche aufmerksam zu werden. ")
     st.image(img1)
