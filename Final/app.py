@@ -35,7 +35,7 @@ def page1():
     st.header("So können Sie unser Audio-Klassifizierungs-Modell nutzen")
     
     st.subheader("1. Laden Sie die Sensor-Logger App für Ihr Smartphone herunter")
-    st.markdown("iOS: https://apps.apple.com/us/app/sensor-logger/id1531582925")
+    st.markdown("    iOS: https://apps.apple.com/us/app/sensor-logger/id1531582925")
     st.markdown("Android: https://play.google.com/store/apps/details?id=com.kelvin.sensorapp&pli=1")          
     st.subheader("2. Nehmen Sie ein von unserem Modell unterstütztes Geräusch auf")
     st.markdown("Aktivieren Sie auf dem Reiter 'Logger' 'Microphone' und erstellen Sie eine Tonaufnahme von **Türklopfen, laufendem Wasser oder einer Mikrowelle** mittels 'Start Recording'.")
