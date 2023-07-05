@@ -109,6 +109,9 @@ def page1():
 
 def page2():
     st.title("Hintergrund")
+
+    img2 = Image.open('Final/Assets/image2.jpg')
+    img3 = Image.open('Final/Assets/image3.jpg')
     
     with st.expander("Unsere Idee"):
         st.markdown("**Unser Ziel ist es, gehörlosen Menschen mit unserer Lösung eine kostengünstige und flexible Möglichkeit zu bieten, auf relevante Geräusche aufmerksam gemacht zu werden.**  Es existieren bestehende Lösungen auf den verbreiteten Smartphone-Betriebssystemen (vgl. https://www.netzwelt.de/anleitung/188298-android-so-erkennt-handy-geraeusche-alarmiert-euch.html und https://www.giga.de/tipp/geraeuscherkennung-am-iphone-so-gehts/). Leider lässt sich die gesamte Wohnung mit nur einem Smartphone nicht zuverlässig abdecken. Wenn also z.B. im Nebenraum aus Versehen Wasser läuft, reicht diese Lösung nicht. Außerdem funktioniert die Erkennung schlechter, wenn das Smartphone in der Hosentasche oder in der Tasche  ist.  Die erkennbaren Geräusche sind zudem limitiert.  **Die jetzige Version unserer Anwendung ist ein Proof of Concept**, der zeigt, dass es mit vergleichsweise wenigen selbst aufgenommenen Trainingsdaten möglich ist, ein gut funktionierendes Machine Learning Modell zu trainieren.")
@@ -167,13 +170,11 @@ def page2():
     with st.expander("Über die Entwickler"):
         col1,col2 = st.columns(2)
         with col1:
-            #st.image(image1)
-            st.write("bild 1")
+            st.image(img2)
             st.markdown("Martin Sigl studiert Wirtschaftsinformatik im Bachelor an der Friedrich-Alexander-Universität Erlangen-Nürnberg im 5. Fachsemester. Er beschäftigt sich seit Kurzem auch mit Machine-Learning. Martin möchte dazu beitragen, dass diese und andere spannende Technologien nicht nur dort eingesetzt werden, wo sie wirtschaftlich möglichst rentabel sind, sondern auch da, wo sie anderweitig Nutzen schaffen.") 
         with col2:
-           # st.image(image1)
-           st.write("bild 2")
-           st.write("Lorem Ipsum")
+           st.image(img3)
+           st.write("Marvin Gordes studiert Wirtschaftsinformatik im Bachelor an der Friedrich-Alexander-Universität Erlangen-Nürnberg im 6. Fachsemester. Er sieht Machine Learning als interessantestes Teilgebiet der Informatik und arbeitet über seinen Nebenjob als studentische Hilfskraft aktiv an einem entsprechenden Forschungsprojekt der FAU.")
 
 
 def page3():
