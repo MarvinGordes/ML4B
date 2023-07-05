@@ -5,7 +5,7 @@ import pickle
 from sklearn.metrics import classification_report
 import numpy as np
 
-# WICHTIG: Damit das hier auf deinem LocalHost läuft, in Zeile 75 das "Final/" aus dem Dateipfad nehmen, das brauchts nur wenn der Code über Github läuft
+# WICHTIG: Damit das hier auf deinem Local Host läuft, in Zeile 75 das "Final/" aus dem Dateipfad nehmen, das brauchts nur wenn der Code über Github läuft
 # Kurzer Rundown der wichtigsten Methoden:
 #
 # Größere Schriftzüge: st.title("Lorem Ipsum"), st.header("Lorem Ipsum"), st.subheader("Lorem Ipsum")
