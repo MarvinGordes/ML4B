@@ -23,4 +23,4 @@ streamlit run app.py
 ```
 ## Mitwirkende:
 
-Martin Siegl, Marvin Gordes
+Martin Sigl, Marvin Gordes
