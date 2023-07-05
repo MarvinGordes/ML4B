@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import pickle
 from sklearn.metrics import classification_report
 import numpy as np
+from PIL import Image
 
 # WICHTIG: Damit das hier auf deinem Local Host läuft, in Zeile 75 das "Final/" aus dem Dateipfad nehmen, das brauchts nur wenn der Code über Github läuft
 # Kurzer Rundown der wichtigsten Methoden:
@@ -26,7 +27,7 @@ import numpy as np
 
 
 def home():
-    img1 = open("Final/Assets/image1.jpg")
+    img1 = open('Final/Assets/image1.jpg')
     st.header("Willkommen auf unserem Audio-Klassifizierungs-Tool!")
     st.markdown("Wir verwenden ein Machine-Learning-Modell, um verschiedene Arte von Geräuschen voneinander unterscheiden zu können. Unser Ziel ist es, das Machine-Learning-Modell und diese Anwendung so weiterzuentwickeln, dass sie gehörlosen Menschen dabei helfen kann, auf relevante Geräusche aufmerksam zu werden. ")
     st.image(img1)
