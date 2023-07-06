@@ -1,3 +1,15 @@
+## Willkommen auf unserem Audio-Classification Repository!
+
+Enthalten sind:
+
+-Ein Machine Learning Modell, das auf Basis von Audio-Daten der "Sensor Logger" App verschiedene Geräusche unterscheiden kann
+
+-Eine ausführbare Streamlit-App, die Nutzern die Interaktion mit einem trainierten Modell ermöglicht
+
+-Jegliche verwendete Testdaten
+
+-Einige frühere Versionen von Code, Modell und Trainingsdatensätzen 
+
 ## Aufbau:
 
 Der "Final" Ordner beinhaltet alle für die Nutzung der App benötigten Inhalte.
