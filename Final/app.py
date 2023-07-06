@@ -151,6 +151,7 @@ def page2():
         st.code(code, language='python')
         
     with st.expander("RandomForest-Gewichtung"):
+        st.markdown("Lorem Ipsum")
         st.image(img4)
 
     with st.expander("Über die Entwickler"):
