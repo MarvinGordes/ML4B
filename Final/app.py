@@ -151,7 +151,7 @@ def page2():
         st.code(code, language='python')
         
     with st.expander("RandomForest-Gewichtung"):
-        st.markdown("Lorem Ipsum")
+        st.markdown("Hier sehen Sie den Feature Importance Graph des in dieser App verwendeten Modells. Die Feature Importance, also die Merkmalsbedeutung, gibt an, welchen Einfluss ein bestimmtes Merkmal auf die Qualität der Vorhersagen des Modells hat. Die Höhe der Balken gibt die relative Wichtigkeit der Merkmale wider, die darin liegenden Linien einen Unsicherheitsbereich.")
         st.image(img4)
 
     with st.expander("Über die Entwickler"):
