@@ -6,28 +6,10 @@ from sklearn.metrics import classification_report
 import numpy as np
 from PIL import Image
 
-# WICHTIG: Damit das hier auf deinem Local Host läuft, in Zeile 75 das "Final/" aus dem Dateipfad nehmen, das brauchts nur wenn der Code über Github läuft
-# Kurzer Rundown der wichtigsten Methoden:
-#
-# Größere Schriftzüge: st.title("Lorem Ipsum"), st.header("Lorem Ipsum"), st.subheader("Lorem Ipsum")
-#
-# Text: st.write("Für Einzeiler"), st.markdown("Für alles mit Zeilenumbruch")  -> Absätze hab ich bisher einfach mit mehreren markdowns gemacht, evtl gehts auch hübscher, kA
-#
-# Ausklappbare Textfelder: with st.expander("Titel"):
-#                            st.write("Einrücken nicht vergessen")
-#                            
-# Medien: image1 = "beispiel.png"  -> st.image(image1), video1 = "beispiel.mp4" -> st.video(video1) 
-#        Falls es hier Probleme gibt, liegts wahrscheinlich am Dateipfad, aber da du das sowieso auf dem LocalHost laufen lassen wirst, ist das nicht besonders kompliziert
-#
-# Wenn du Sachen nebeneinander packen willst:  col1,col2 = st.columns(2)
-#                                            with col1:
-#                                                st.write("Wieder mit Einrücken, für col2 dasselbe")
-#
-# Wenn du noch schauen willst, was es sonst so gibt: https://docs.streamlit.io/library/cheatsheet
-
 
 def home():
     img1 = Image.open('Final/Assets/image1.jpg')
+
     st.header("Willkommen auf unserem Audio-Klassifizierungs-Tool!")
     st.markdown("Wir verwenden ein Machine-Learning-Modell, um verschiedene Arte von Geräuschen voneinander unterscheiden zu können. Unser Ziel ist es, das Machine-Learning-Modell und diese Anwendung so weiterzuentwickeln, dass sie gehörlosen Menschen dabei helfen kann, auf relevante Geräusche aufmerksam zu werden. ")
     st.image(img1)
@@ -112,6 +94,7 @@ def page2():
 
     img2 = Image.open('Final/Assets/image2.jpg')
     img3 = Image.open('Final/Assets/image3.jpg')
+    img4 = Image.open('Final/Assets/report.png')
     
     with st.expander("Unsere Idee"):
         st.markdown("**Unser Ziel ist es, gehörlosen Menschen mit unserer Lösung eine kostengünstige und flexible Möglichkeit zu bieten, auf relevante Geräusche aufmerksam gemacht zu werden.**  Es existieren bestehende Lösungen auf den verbreiteten Smartphone-Betriebssystemen (vgl. https://www.netzwelt.de/anleitung/188298-android-so-erkennt-handy-geraeusche-alarmiert-euch.html und https://www.giga.de/tipp/geraeuscherkennung-am-iphone-so-gehts/). Leider lässt sich die gesamte Wohnung mit nur einem Smartphone nicht zuverlässig abdecken. Wenn also z.B. im Nebenraum aus Versehen Wasser läuft, reicht diese Lösung nicht. Außerdem funktioniert die Erkennung schlechter, wenn das Smartphone in der Hosentasche oder in der Tasche  ist.  Die erkennbaren Geräusche sind zudem limitiert.  **Die jetzige Version unserer Anwendung ist ein Proof of Concept**, der zeigt, dass es mit vergleichsweise wenigen selbst aufgenommenen Trainingsdaten möglich ist, ein gut funktionierendes Machine Learning Modell zu trainieren.")
@@ -166,6 +149,9 @@ def page2():
 # 10 Zeilen ~ 1 Sekunde
 # max Sample Menge = Zeilen in csv Datei'''
         st.code(code, language='python')
+        
+    with st.expander("RandomForest-Gewichtung"):
+        st.image(img4)
 
     with st.expander("Über die Entwickler"):
         col1,col2 = st.columns(2)
